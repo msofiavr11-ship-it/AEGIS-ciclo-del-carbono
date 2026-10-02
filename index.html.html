@@ -1,0 +1,2002 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AEGIS: EL CICLO DEL CARBONO</title>
+
+<style>
+
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+   ========================================================= */
+
+:root {
+    --verde-oscuro: #145c52;
+    --verde: #19766a;
+    --verde-claro: #2c9a72;
+
+    --fondo: #eef5f2;
+    --blanco: #ffffff;
+
+    --texto: #18302b;
+    --texto-suave: #5d716b;
+
+    --borde: #d7e3df;
+
+    --correcto: #177245;
+    --incorrecto: #a83b3b;
+
+    --sombra: 0 12px 30px rgba(24,48,43,0.10);
+}
+
+
+/* =========================================================
+   ESTILOS GENERALES
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    font-family:
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #e8f4f5 0%,
+            var(--fondo) 38%,
+            #f7faf8 100%
+        );
+
+    color: var(--texto);
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+   ========================================================= */
+
+header {
+
+    padding: 35px 20px 28px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f554e,
+            #19766a 55%,
+            #2c9a72
+        );
+
+    color: white;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.12);
+}
+
+header .eyebrow {
+
+    font-size: 0.85rem;
+
+    letter-spacing: 0.16em;
+
+    font-weight: 800;
+
+    opacity: 0.9;
+}
+
+h1 {
+
+    margin: 7px 0 5px;
+
+    font-size:
+        clamp(
+            1.8rem,
+            5vw,
+            3.1rem
+        );
+
+    letter-spacing: 0.02em;
+}
+
+header p {
+
+    margin: 0;
+
+    opacity: 0.92;
+
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================= */
+
+.container {
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    padding:
+        22px
+        16px
+        50px;
+}
+
+
+/* =========================================================
+   TARJETAS
+   ========================================================= */
+
+.card {
+
+    background: var(--blanco);
+
+    border:
+        1px solid
+        var(--borde);
+
+    border-radius: 20px;
+
+    box-shadow: var(--sombra);
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   IMAGEN DEL CICLO DEL CARBONO
+   ========================================================= */
+
+.image-wrap {
+
+    padding: 10px;
+
+    overflow: hidden;
+}
+
+.image-wrap img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    border-radius: 14px;
+}
+
+.caption {
+
+    font-size: 0.88rem;
+
+    color: var(--texto-suave);
+
+    margin:
+        10px
+        4px
+        0;
+}
+
+
+/* =========================================================
+   BARRA DE PROGRESO
+   ========================================================= */
+
+.progress-area {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 5;
+
+    background:
+        rgba(
+            247,
+            250,
+            248,
+            0.94
+        );
+
+    backdrop-filter: blur(8px);
+
+    padding:
+        12px
+        0
+        10px;
+}
+
+.progress-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    font-weight: 750;
+
+    font-size: 0.92rem;
+
+    margin-bottom: 7px;
+}
+
+.progress {
+
+    height: 11px;
+
+    background: #dfe9e5;
+
+    border-radius: 99px;
+
+    overflow: hidden;
+}
+
+.progress-bar {
+
+    height: 100%;
+
+    width: 0%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--verde),
+            var(--verde-claro)
+        );
+
+    transition:
+        width
+        0.45s
+        ease;
+}
+
+
+/* =========================================================
+   PREGUNTAS
+   ========================================================= */
+
+.question {
+
+    padding: 22px;
+}
+
+.question h2 {
+
+    font-size: 1.12rem;
+
+    margin:
+        0
+        0
+        17px;
+}
+
+
+/* =========================================================
+   NIVEL DE LA PREGUNTA
+   ========================================================= */
+
+.level {
+
+    display: inline-block;
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+
+    color: var(--verde);
+
+    background: #e6f3ef;
+
+    border-radius: 999px;
+
+    padding:
+        5px
+        9px;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   OPCIONES
+   ========================================================= */
+
+.options {
+
+    display: grid;
+
+    gap: 11px;
+}
+
+.option {
+
+    width: 100%;
+
+    text-align: left;
+
+    border:
+        2px solid
+        var(--borde);
+
+    background: white;
+
+    border-radius: 14px;
+
+    padding:
+        13px
+        15px;
+
+    font-size: 1rem;
+
+    color: var(--texto);
+
+    cursor: pointer;
+
+    transition:
+        0.18s
+        ease;
+
+    display: flex;
+
+    gap: 10px;
+
+    align-items: flex-start;
+}
+
+.option:hover:not(:disabled) {
+
+    transform:
+        translateY(-1px);
+
+    border-color:
+        #91c7ba;
+
+    background:
+        #f7fcfa;
+}
+
+.option .letter {
+
+    font-weight: 900;
+
+    min-width: 25px;
+
+    color:
+        var(--verde);
+}
+
+.option.correct {
+
+    border-color:
+        #4ba678;
+
+    background:
+        #edf9f2;
+}
+
+.option.incorrect {
+
+    border-color:
+        #d66a6a;
+
+    background:
+        #fff1f1;
+}
+
+.option:disabled {
+
+    cursor: default;
+}
+
+
+/* =========================================================
+   RETROALIMENTACIÓN
+   ========================================================= */
+
+.feedback {
+
+    margin-top: 15px;
+
+    padding:
+        15px
+        16px;
+
+    border-radius: 14px;
+
+    display: none;
+
+    border-left:
+        5px solid
+        var(--verde);
+}
+
+.feedback.show {
+
+    display: block;
+
+    animation:
+        fade
+        0.25s
+        ease;
+}
+
+.feedback.good {
+
+    background: #edf9f2;
+
+    border-left-color:
+        var(--correcto);
+}
+
+.feedback.bad {
+
+    background: #fff3f3;
+
+    border-left-color:
+        var(--incorrecto);
+}
+
+.feedback strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+}
+
+.explain {
+
+    color:
+        #425a54;
+
+    font-size: 0.95rem;
+}
+
+
+/* =========================================================
+   ENLACE PARA AMPLIAR EXPLICACIÓN
+   ========================================================= */
+
+.expand {
+
+    margin-top: 12px;
+
+    display: inline-block;
+
+    color:
+        var(--verde);
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    border-bottom:
+        1px dashed
+        currentColor;
+}
+
+.expand:hover {
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   RESULTADO FINAL
+   ========================================================= */
+
+.final {
+
+    display: none;
+
+    text-align: center;
+}
+
+.final.show {
+
+    display: block;
+
+    animation:
+        fade
+        0.35s
+        ease;
+}
+
+.score {
+
+    font-size: 2.2rem;
+
+    font-weight: 900;
+
+    color:
+        var(--verde);
+
+    margin:
+        5px
+        0;
+}
+
+.restart {
+
+    border: 0;
+
+    border-radius: 12px;
+
+    background:
+        var(--verde);
+
+    color: white;
+
+    font-weight: 800;
+
+    padding:
+        12px
+        18px;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+}
+
+.restart:hover {
+
+    background:
+        var(--verde-oscuro);
+}
+
+
+/* =========================================================
+   EXPLICACIONES AMPLIADAS
+   ========================================================= */
+
+details {
+
+    border-top:
+        1px solid
+        var(--borde);
+
+    padding-top: 15px;
+
+    margin-top: 14px;
+}
+
+summary {
+
+    cursor: pointer;
+
+    font-weight: 800;
+
+    color:
+        var(--verde);
+}
+
+ul {
+
+    padding-left: 20px;
+}
+
+
+/* =========================================================
+   PIE DE PÁGINA
+   ========================================================= */
+
+footer {
+
+    text-align: center;
+
+    color:
+        var(--texto-suave);
+
+    font-size: 0.82rem;
+
+    padding:
+        4px
+        0
+        20px;
+}
+
+
+/* =========================================================
+   ANIMACIONES
+   ========================================================= */
+
+@keyframes fade {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(5px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes pop {
+
+    0% {
+
+        transform:
+            scale(0.7);
+
+        opacity: 0;
+    }
+
+    70% {
+
+        transform:
+            scale(1.12);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   CONFETI
+   ========================================================= */
+
+.confetti {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 20;
+}
+
+.confetti i {
+
+    position: absolute;
+
+    top: -20px;
+
+    width: 9px;
+
+    height: 14px;
+
+    animation:
+        fall
+        1.8s
+        linear
+        forwards;
+}
+
+@keyframes fall {
+
+    to {
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0.1;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .card {
+
+        padding: 15px;
+    }
+
+    .question {
+
+        padding: 17px;
+    }
+
+    .option {
+
+        font-size: 0.95rem;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     ENCABEZADO
+     ======================================================= -->
+
+<header>
+
+    <div class="eyebrow">
+        AEGIS · ACTIVIDAD INTERACTIVA
+    </div>
+
+    <h1>
+        AEGIS: EL CICLO DEL CARBONO
+    </h1>
+
+    <p>
+        Observa el diagrama, sigue el recorrido del carbono y responde.
+    </p>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- =======================================================
+     IMAGEN DEL CICLO DEL CARBONO
+     IMPORTANTE:
+     La imagen debe estar en la misma carpeta que este HTML.
+     ======================================================= -->
+
+<section class="card image-wrap">
+
+    <img
+        src="imagen ciclo del carbono 3.jpg"
+        alt="Diagrama del ciclo del carbono con procesos terrestres y marinos"
+    >
+
+    <p class="caption">
+
+        Explora visualmente las rutas del carbono entre
+        la atmósfera, los seres vivos, el suelo y el océano.
+
+    </p>
+
+</section>
+
+
+
+<!-- =======================================================
+     BARRA DE PROGRESO
+     ======================================================= -->
+
+<div class="progress-area">
+
+    <div class="progress-top">
+
+        <span id="progressText">
+            Pregunta 1 de 3
+        </span>
+
+        <span id="scoreText">
+            0 / 3
+        </span>
+
+    </div>
+
+
+    <div class="progress">
+
+        <div
+            class="progress-bar"
+            id="progressBar">
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =======================================================
+     PREGUNTA 1
+     NIVEL: COMPRENSIÓN
+     ======================================================= -->
+
+<section
+    class="card question"
+    id="q1"
+>
+
+    <span class="level">
+        Nivel 1 · Comprensión
+    </span>
+
+
+    <h2>
+
+        Observando el diagrama,
+        ¿qué proceso permite que el carbono pase del CO₂ atmosférico
+        a la materia orgánica de las plantas?
+
+    </h2>
+
+
+    <div class="options">
+
+
+        <button
+            class="option"
+            data-correct="false"
+        >
+
+            <span class="letter">
+                A.
+            </span>
+
+            <span>
+                Respiración
+            </span>
+
+        </button>
+
+
+
+        <button
+            class="option"
+            data-correct="true"
+        >
+
+            <span class="letter">
+                B.
+            </span>
+
+            <span>
+                Fotosíntesis
+            </span>
+
+        </button>
+
+
+
+        <button
+            class="option"
+            data-correct="false"
+        >
+
+            <span class="letter">
+                C.
+            </span>
+
+            <span>
+                Descomposición
+            </span>
+
+        </button>
+
+
+
+        <button
+            class="option"
+            data-correct="false"
+        >
+
+            <span class="letter">
+                D.
+            </span>
+
+            <span>
+                Combustión de combustibles fósiles
+            </span>
+
+        </button>
+
+
+    </div>
+
+
+    <div class="feedback"></div>
+
+</section>
+
+
+
+<!-- =======================================================
+     PREGUNTA 2
+     NIVEL: APLICACIÓN
+     ======================================================= -->
+
+<section
+    class="card question"
+    id="q2"
+>
+
+    <span class="level">
+        Nivel 2 · Aplicación
+    </span>
+
+
+    <h2>
+
+        Un animal se alimenta de una planta que contiene carbono
+        incorporado mediante la fotosíntesis.
+        ¿Qué proceso permite que ese carbono pase de la planta al animal?
+
+    </h2>
+
+
+    <div class="options">
+
+
+        <button
+            class="option"
+            data-correct="true"
+        >
+
+            <span class="letter">
+                A.
+            </span>
+
+            <span>
+                Consumo de biomasa
+            </span>
+
+        </button>
+
+
+
+        <button
+            class="option"
+            data-correct="false"
+        >
+
+            <span class="letter">
+                B.
+            </span>
+
+            <span>
+                Respiración de plantas
+            </span>
+
+        </button>
+
+
+
+        <button
+            class="option"
+            data-correct="false"
+        >
+
+            <span class="letter">
+                C.
+            </span>
+
+            <span>
+                Absorción oceánica de CO₂
+            </span>
+
+        </button>
+
+
+
+        <button
+            class="option"
+            data-correct="false"
+        >
+
+            <span class="letter">
+                D.
+            </span>
+
+            <span>
+                Sedimentación del carbono
+            </span>
+
+        </button>
+
+
+    </div>
+
+
+    <div class="feedback"></div>
+
+</section>
+
+
+
+<!-- =======================================================
+     PREGUNTA 3
+     NIVEL: ANÁLISIS
+     ======================================================= -->
+
+<section
+    class="card question"
+    id="q3"
+>
+
+    <span class="level">
+        Nivel 3 · Análisis
+    </span>
+
+
+    <h2>
+
+        El fitoplancton incorpora CO₂ mediante la fotosíntesis
+        y contribuye al almacenamiento de carbono en el océano.
+        Sin embargo, el aumento del CO₂ atmosférico también hace
+        que el océano absorba más CO₂.
+        ¿Qué ocurre como consecuencia de esta incorporación de CO₂
+        al agua de mar?
+
+    </h2>
+
+
+    <div class="options">
+
+
+        <button
+            class="option"
+            data-correct="true"
+        >
+
+            <span class="letter">
+                A.
+            </span>
+
+            <span>
+
+                Disminuye el pH del agua de mar debido
+                a cambios en su equilibrio químico.
+
+            </span>
+
+        </button>
+
+
+
+        <button
+            class="option"
+            data-correct="false"
+        >
+
+            <span class="letter">
+                B.
+            </span>
+
+            <span>
+
+                Aumenta el pH porque el CO₂ se transforma
+                directamente en oxígeno.
+
+            </span>
+
+        </button>
+
+
+
+        <button
+            class="option"
+            data-correct="false"
+        >
+
+            <span class="letter">
+                C.
+            </span>
+
+            <span>
+
+                El CO₂ absorbido desaparece del ciclo del carbono
+                al ser utilizado por el fitoplancton.
+
+            </span>
+
+        </button>
+
+
+
+        <button
+            class="option"
+            data-correct="false"
+        >
+
+            <span class="letter">
+                D.
+            </span>
+
+            <span>
+
+                El océano deja de funcionar como sumidero de carbono
+                porque la fotosíntesis del fitoplancton se detiene.
+
+            </span>
+
+        </button>
+
+
+    </div>
+
+
+    <div class="feedback"></div>
+
+</section>
+
+
+
+<!-- =======================================================
+     RESULTADO FINAL
+     ======================================================= -->
+
+<section
+    class="card final"
+    id="final"
+>
+
+    <div class="fanfare">
+        🎉
+    </div>
+
+
+    <h2>
+        ¡Actividad completada!
+    </h2>
+
+
+    <div
+        class="score"
+        id="finalScore"
+    >
+        0 / 3
+    </div>
+
+
+    <p id="finalMessage"></p>
+
+
+    <button
+        class="restart"
+        onclick="restart()"
+    >
+
+        Repetir actividad
+
+    </button>
+
+</section>
+
+
+
+<!-- =======================================================
+     AMPLIAR EXPLICACIÓN
+     ======================================================= -->
+
+<section
+    class="card"
+    id="ampliar"
+>
+
+    <h2>
+        🔎 Ampliar explicación
+    </h2>
+
+
+    <p>
+
+        El ciclo del carbono describe cómo el carbono se intercambia
+        entre la atmósfera, los seres vivos, el suelo, los océanos
+        y otros reservorios.
+
+    </p>
+
+
+
+    <details>
+
+        <summary>
+            1. Fotosíntesis y captura de carbono
+        </summary>
+
+
+        <p>
+
+            Las plantas y el fitoplancton utilizan CO₂,
+            agua y energía luminosa para producir materia orgánica
+            mediante la fotosíntesis.
+
+            De esta manera, el carbono pasa del CO₂ a moléculas
+            que forman parte de la biomasa.
+
+        </p>
+
+    </details>
+
+
+
+    <details>
+
+        <summary>
+            2. Transferencia por alimentación
+        </summary>
+
+
+        <p>
+
+            Cuando un animal consume una planta,
+            parte del carbono almacenado en la biomasa vegetal
+            pasa al organismo consumidor.
+
+            El carbono continúa así su recorrido por la red alimentaria.
+
+        </p>
+
+    </details>
+
+
+
+    <details>
+
+        <summary>
+            3. Océano, fitoplancton y acidificación
+        </summary>
+
+
+        <p>
+
+            El océano intercambia CO₂ con la atmósfera
+            y constituye un importante sumidero de carbono.
+
+            El fitoplancton fija carbono mediante fotosíntesis
+            y contribuye a la bomba biológica del carbono.
+
+            Al aumentar la cantidad de CO₂ disuelto,
+            cambian los equilibrios químicos del agua de mar
+            y disminuye su pH.
+
+            Este proceso se conoce como acidificación oceánica.
+
+        </p>
+
+    </details>
+
+</section>
+
+
+
+<!-- =======================================================
+     PIE
+     ======================================================= -->
+
+<footer>
+
+    AEGIS · Ciclo del carbono · Actividad interactiva
+
+</footer>
+
+
+</main>
+
+
+
+<!-- =======================================================
+     CONTENEDOR DEL CONFETI
+     ======================================================= -->
+
+<div
+    class="confetti"
+    id="confetti">
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+let score = 0;
+
+let answered = 0;
+
+const total = 3;
+
+
+
+/* =========================================================
+   ACTUALIZAR BARRA DE PROGRESO
+   ========================================================= */
+
+function updateProgress() {
+
+    document
+        .getElementById("progressBar")
+        .style
+        .width =
+        (answered / total * 100) + "%";
+
+
+    document
+        .getElementById("progressText")
+        .textContent =
+        answered < total
+        ? `Pregunta ${Math.min(answered + 1, total)} de ${total}`
+        : "Actividad completada";
+
+
+    document
+        .getElementById("scoreText")
+        .textContent =
+        `${score} / ${total}`;
+
+}
+
+
+
+/* =========================================================
+   SONIDOS
+   ========================================================= */
+
+function playTone(
+    frequency,
+    duration,
+    type = "sine",
+    volume = 0.055
+) {
+
+    try {
+
+        const AudioContext =
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+
+        if (!AudioContext) {
+            return;
+        }
+
+
+        const context =
+            new AudioContext();
+
+
+        const oscillator =
+            context.createOscillator();
+
+
+        const gain =
+            context.createGain();
+
+
+        oscillator.type =
+            type;
+
+
+        oscillator.frequency.value =
+            frequency;
+
+
+        gain.gain.setValueAtTime(
+            volume,
+            context.currentTime
+        );
+
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.001,
+            context.currentTime + duration
+        );
+
+
+        oscillator.connect(gain);
+
+        gain.connect(context.destination);
+
+
+        oscillator.start();
+
+        oscillator.stop(
+            context.currentTime + duration
+        );
+
+    }
+
+    catch (error) {
+
+        console.log(
+            "El sonido no pudo reproducirse."
+        );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   SONIDO CORRECTO
+   ========================================================= */
+
+function correctSound() {
+
+    playTone(
+        660,
+        0.12,
+        "sine"
+    );
+
+
+    setTimeout(
+        () => {
+
+            playTone(
+                880,
+                0.18,
+                "sine"
+            );
+
+        },
+        100
+    );
+
+}
+
+
+
+/* =========================================================
+   SONIDO INCORRECTO
+   ========================================================= */
+
+function wrongSound() {
+
+    playTone(
+        220,
+        0.18,
+        "triangle"
+    );
+
+}
+
+
+
+/* =========================================================
+   EXPLICACIONES
+   ========================================================= */
+
+const explanations = [
+
+
+    "La fotosíntesis incorpora CO₂ atmosférico a la materia orgánica que forma la biomasa de las plantas.",
+
+
+    "Al alimentarse de la planta, el animal incorpora parte del carbono que estaba almacenado en la biomasa vegetal.",
+
+
+    "El CO₂ disuelto participa en reacciones químicas que aumentan la concentración de iones hidrógeno y disminuyen el pH del agua de mar. El océano sigue siendo un importante sumidero de carbono, y el fitoplancton cumple un papel esencial en la captura biológica y el transporte de carbono hacia aguas más profundas."
+
+];
+
+
+
+/* =========================================================
+   MOSTRAR RETROALIMENTACIÓN
+   ========================================================= */
+
+function feedbackFor(
+    isCorrect,
+    box
+) {
+
+    box.className =
+        "feedback show " +
+        (
+            isCorrect
+            ? "good"
+            : "bad"
+        );
+
+
+    box.innerHTML =
+
+        isCorrect
+
+        ?
+
+        `
+        <strong>
+            ✓ ¡Correcto!
+        </strong>
+
+        <div class="explain">
+            ${box.dataset.explain}
+        </div>
+
+        <a
+            class="expand"
+            href="#ampliar"
+        >
+            Ampliar explicación ↓
+        </a>
+        `
+
+        :
+
+        `
+        <strong>
+            ✗ No es la opción correcta.
+        </strong>
+
+        <div class="explain">
+            ${box.dataset.explain}
+        </div>
+
+        <a
+            class="expand"
+            href="#ampliar"
+        >
+            Ampliar explicación ↓
+        </a>
+        `;
+
+}
+
+
+
+/* =========================================================
+   CONFIGURAR LAS PREGUNTAS
+   ========================================================= */
+
+document
+    .querySelectorAll(".question")
+    .forEach(
+        (question, questionIndex) => {
+
+
+        const feedback =
+            question.querySelector(
+                ".feedback"
+            );
+
+
+        feedback.dataset.explain =
+            explanations[questionIndex];
+
+
+
+        question
+            .querySelectorAll(".option")
+            .forEach(
+                button => {
+
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+
+                    /* Evitar responder dos veces */
+
+                    if (
+                        question.dataset.answered
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    question.dataset.answered =
+                        "true";
+
+
+                    answered++;
+
+
+
+                    /* Determinar si es correcta */
+
+                    const isCorrect =
+                        button.dataset.correct === "true";
+
+
+
+                    /* Desactivar todas las opciones */
+
+                    question
+                        .querySelectorAll(".option")
+                        .forEach(
+                            option => {
+
+                            option.disabled = true;
+
+                        }
+                    );
+
+
+
+                    /* Marcar respuesta seleccionada */
+
+                    button.classList.add(
+                        isCorrect
+                        ? "correct"
+                        : "incorrect"
+                    );
+
+
+
+                    /* Si fue incorrecta,
+                       mostrar también la correcta */
+
+                    if (!isCorrect) {
+
+                        const correctOption =
+                            question.querySelector(
+                                '.option[data-correct="true"]'
+                            );
+
+
+                        correctOption.classList.add(
+                            "correct"
+                        );
+
+                    }
+
+
+
+                    /* Actualizar puntuación */
+
+                    if (isCorrect) {
+
+                        score++;
+
+                        correctSound();
+
+                    }
+
+                    else {
+
+                        wrongSound();
+
+                    }
+
+
+
+                    /* Mostrar explicación */
+
+                    feedbackFor(
+                        isCorrect,
+                        feedback
+                    );
+
+
+
+                    /* Actualizar progreso */
+
+                    updateProgress();
+
+
+
+                    /* Mostrar resultado final */
+
+                    if (
+                        answered === total
+                    ) {
+
+                        setTimeout(
+                            showFinal,
+                            650
+                        );
+
+                    }
+
+                });
+
+            });
+
+    });
+
+
+
+/* =========================================================
+   RESULTADO FINAL
+   ========================================================= */
+
+function showFinal() {
+
+    const final =
+        document.getElementById(
+            "final"
+        );
+
+
+    final.classList.add(
+        "show"
+    );
+
+
+    document
+        .getElementById(
+            "finalScore"
+        )
+        .textContent =
+        `${score} / ${total}`;
+
+
+
+    const message =
+        document.getElementById(
+            "finalMessage"
+        );
+
+
+
+    if (score === 3) {
+
+        message.textContent =
+            "Excelente: relacionaste los procesos del ciclo del carbono y analizaste el caso del océano.";
+
+    }
+
+    else if (score === 2) {
+
+        message.textContent =
+            "Muy bien. Revisa la explicación ampliada para consolidar las relaciones entre los procesos.";
+
+    }
+
+    else {
+
+        message.textContent =
+            "Buen comienzo. Explora la explicación ampliada y vuelve a intentarlo.";
+
+    }
+
+
+
+    /* Fanfarria si responde todo correctamente */
+
+    if (score === 3) {
+
+        playTone(
+            523,
+            0.12
+        );
+
+
+        setTimeout(
+            () => {
+
+                playTone(
+                    659,
+                    0.12
+                );
+
+            },
+            130
+        );
+
+
+        setTimeout(
+            () => {
+
+                playTone(
+                    784,
+                    0.25
+                );
+
+            },
+            260
+        );
+
+
+        makeConfetti();
+
+    }
+
+
+
+    final.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "center"
+
+    });
+
+}
+
+
+
+/* =========================================================
+   CONFETI
+   ========================================================= */
+
+function makeConfetti() {
+
+    const container =
+        document.getElementById(
+            "confetti"
+        );
+
+
+    for (
+        let i = 0;
+        i < 80;
+        i++
+    ) {
+
+
+        const piece =
+            document.createElement(
+                "i"
+            );
+
+
+        piece.style.left =
+            Math.random() * 100 +
+            "%";
+
+
+        piece.style.animationDelay =
+            Math.random() * 0.8 +
+            "s";
+
+
+        piece.style.transform =
+            `rotate(${Math.random() * 360}deg)`;
+
+
+        piece.style.background =
+            [
+                "#19766a",
+                "#2c9a72",
+                "#e5a93d",
+                "#5577aa",
+                "#a83b3b"
+            ][
+                Math.floor(
+                    Math.random() * 5
+                )
+            ];
+
+
+        container.appendChild(
+            piece
+        );
+
+
+        setTimeout(
+            () => {
+
+                piece.remove();
+
+            },
+            2400
+        );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   REINICIAR ACTIVIDAD
+   ========================================================= */
+
+function restart() {
+
+    score = 0;
+
+    answered = 0;
+
+
+
+    document
+        .querySelectorAll(".question")
+        .forEach(
+            question => {
+
+
+            delete question.dataset.answered;
+
+
+
+            question
+                .querySelectorAll(".option")
+                .forEach(
+                    button => {
+
+                    button.disabled =
+                        false;
+
+
+                    button.classList.remove(
+                        "correct",
+                        "incorrect"
+                    );
+
+                }
+            );
+
+
+
+            question
+                .querySelector(".feedback")
+                .className =
+                "feedback";
+
+        }
+    );
+
+
+
+    document
+        .getElementById("final")
+        .classList.remove(
+            "show"
+        );
+
+
+    updateProgress();
+
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+
+
+/* =========================================================
+   INICIAR
+   ========================================================= */
+
+updateProgress();
+
+</script>
+
+
+</body>
+
+</html>
